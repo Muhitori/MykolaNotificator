@@ -1,7 +1,7 @@
 const { Client, Events, GatewayIntentBits } = require("discord.js");
 require("dotenv").config();
 
-const { TOKEN, PERSONAL_USER_ID, SERVER_ID } = process.env;
+const { TOKEN, PERSONAL_USER_ID, WORK_USER_ID, SERVER_ID } = process.env;
 
 const client = new Client({
 	intents: [
@@ -16,7 +16,8 @@ client.on("messageCreate", async (message) => {
 	if (
 		message?.guild &&
 		message?.guild?.id === SERVER_ID &&
-		!message.author.bot
+		!message.author.bot &&
+		message.mentions.has(WORK_USER_ID)
 	) {
 		try {
 			const user = await client.users.fetch(PERSONAL_USER_ID);
