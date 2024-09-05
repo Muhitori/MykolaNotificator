@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node index.js",
-    "start": "node index.js"
+    "build": "npm install && node index.js"
   },
   "author": "",
   "license": "ISC",
